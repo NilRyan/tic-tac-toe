@@ -33,7 +33,7 @@ hmtl{
 }
 .panel{
   display: grid;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;      
   justify-items: center;
   font-size: 18vh;
   color: white;
