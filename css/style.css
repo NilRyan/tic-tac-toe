@@ -3,7 +3,11 @@
 hmtl{
   font-family: 'Short Stack', cursive;
 }
-
+img{
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .container{
   display: grid;
   grid-template-rows: 2fr 10fr;
@@ -22,6 +26,29 @@ hmtl{
   font-size: large;
 
 }
+.reset {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:70px;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+}
+.reset:hover {
+  transform: scale(1.1);
+
+}
+
+.score-panel{
+  display: flex;
+  font-size: larger;
+  font-weight: bolder ;
+  font-family: 'Roboto', sans-serif;  
+  align-items: center; 
+}
+
 .board-wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -31,7 +58,7 @@ hmtl{
   margin-right: 25%;
   gap: 3px;
 }
-.panel{
+.panel {
   display: grid;
   font-family: 'Roboto', sans-serif;      
   justify-items: center;
@@ -42,6 +69,7 @@ hmtl{
   border: 2px solid rgb(129, 129, 35);
   
 }
+
 
 @media screen and (max-width: 420px){
   .board-wrapper{
