@@ -8,7 +8,7 @@ for( let i = 0; i < 9 ; i++){
   boardWrapper.appendChild(board);
 }
 
-//store data in an array, with functions to insert x, o, and clear the array the altogether
+//store data in an array, with functions to insert x, o, and clear the array altogether
 const gameBoard = (() => {
   const boardArray = Array(9);
   const x = (index) => {
@@ -30,6 +30,23 @@ const gameBoard = (() => {
       boardWrapper.children[index].textContent = '';
     })
   }
+  //check board if game is won
+  const winCheck = (marker) => {
+    //marker is X or O
+    const vertical = [0,3,6].map(i=>{return[i,i+1,i+2]});
+    const horizontal = [0,1,2].map(i=>{return[i,i+3,i+6]});
+    const diagonal = [[2,4,6],[0, 4, 8]];
+  
+    const winArray = [].concat(vertical).concat(horizontal).concat(diagonal);
+    
+    let result = winArray.some(indices => { 
+
+    return boardArray[indices[0]] === marker && boardArray[indices[1]] === marker && boardArray[indices[2]] === marker})
+    if( result === true ){
+      alert('Player ' + marker + ' won');
+      gameBoard.clear();
+    }
+  }
   
   //computer generates random
   const computer = () => {
@@ -41,7 +58,7 @@ const gameBoard = (() => {
     return index;
   }
   return {
-    boardArray, x, o, clear, computer
+    boardArray, x, o, clear, computer, winCheck
   };
 
 })();
@@ -53,7 +70,10 @@ boardWrapper.addEventListener('click', e => {
   console.log(index);
   gameBoard.x(index);
   setTimeout(function (){gameBoard.o(gameBoard.computer())}, 250);
-
+  setTimeout(function () {
+  gameBoard.winCheck('X');
+  gameBoard.winCheck('O');  },
+  300)
 })
 
 
