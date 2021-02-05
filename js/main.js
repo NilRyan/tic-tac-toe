@@ -28,7 +28,11 @@ const gameBoard = (() => {
   const clear = () => {
     boardArray.forEach((item, index) => {
       boardArray[index] = undefined;
-      boardWrapper.children[index].textContent = '';
+      
+      for(let i = 0; i < 9 ; i++){
+       boardWrapper.children[i].textContent = '';
+      };
+      
     })
   }
   //check board if game is won and clears the board
